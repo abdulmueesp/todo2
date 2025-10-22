@@ -8,6 +8,26 @@ export default function Home() {
   const [cartCount, setCartCount] = useState(3);
   const [activeNav, setActiveNav] = useState('home');
   
+  // Font style variable
+  const nunitoFont = { fontFamily: 'var(--font-nunito), sans-serif' };
+  
+  // Product images array for looping
+  const productImages = ["/iron.webp","/mixi.webp","/ssofa.webp"];
+  
+  // Dummy products data with Indian Rupees
+  const products = [
+    { id: 1, name: "Wireless Headphones", price: "₹2,999", originalPrice: "₹3,749", offerPrice: "₹2,999", image: productImages[0] },
+    { id: 2, name: "Smart Watch", price: "₹5,999", originalPrice: "₹7,499", offerPrice: "₹5,999", image: productImages[1] },
+    { id: 3, name: "Bluetooth Speaker", price: "₹2,499", image: productImages[2] },
+    { id: 4, name: "Gaming Mouse", price: "₹1,499", image: productImages[0] },
+    { id: 5, name: "Mechanical Keyboard", price: "₹3,999", image: productImages[1] },
+    { id: 6, name: "USB-C Hub", price: "₹1,199", image: productImages[2] },
+    { id: 7, name: "Wireless Charger", price: "₹899", image: productImages[0] },
+    { id: 8, name: "Laptop Stand", price: "₹1,799", image: productImages[1] },
+    { id: 9, name: "Webcam HD", price: "₹2,699", image: productImages[2] },
+    { id: 10, name: "Power Bank", price: "₹1,049", image: productImages[0] }
+  ];
+  
   const banners = [
         {
           src: "/banner1.png",
@@ -50,13 +70,13 @@ export default function Home() {
 
             {/* Navigation - Desktop */}
             <nav className="hidden md:flex items-center space-x-8 lg:space-x-12">
-              <a href="#products" className="text-gray-700 hover:text-gray-900 font-medium transition-colors font-local2">
+              <a href="#products" className="text-gray-700 hover:text-gray-900 font-medium transition-colors" style={nunitoFont}>
                 Products
               </a>
-              <a href="#about" className="text-gray-700 hover:text-gray-900 font-medium transition-colors font-local2">
+              <a href="#about" className="text-gray-700 hover:text-gray-900 font-medium transition-colors" style={nunitoFont}>
                 About
               </a>
-              <a href="#contact" className="text-gray-700 hover:text-gray-900 font-medium transition-colors font-local2">
+              <a href="#contact" className="text-gray-700 hover:text-gray-900 font-medium transition-colors" style={nunitoFont}>
                 Contact
               </a>
             </nav>
@@ -71,7 +91,7 @@ export default function Home() {
                   </svg>
                 </button>
                 {cartCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">
+                  <span className="absolute -top-1 -right-1 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">
                     {cartCount}
                   </span>
                 )}
@@ -146,11 +166,12 @@ export default function Home() {
 
       {/* Categories Section */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-8 lg:py-10">
-        <div className="text-center mb-4 sm:mb-8">
-          <p className="text-xl sm:text-3xl  font-bold mb-[2px] text-gray-900 font-local2">Our Categories</p>
-          <p className="text-gray-600 max-w-2xl mx-auto  text-[10px] sm:text-sm">
+        <div className="text-center mb-6 sm:mb-10">
+          <p className="text-xl sm:text-3xl font-bold mb-[2px] sm:mb-[8px] text-gray-900" style={nunitoFont}>Our Categories</p>
+          <p className="text-gray-600 max-w-2xl mx-auto text-[10px] sm:text-sm" style={nunitoFont}>
             Explore our wide range of products
           </p>
+        
         </div>
         
         <div className="grid grid-cols-2 gap-2 sm:gap-8 lg:gap-12 max-w-6xl mx-auto">
@@ -164,7 +185,7 @@ export default function Home() {
                 loading="lazy"
               />
               {/* Top-left tag */}
-              <span className="absolute top-2 left-2 px-2 py-1 rounded-md text-[10px] sm:text-xs font-semibold bg-red-900/90 text-white shadow">
+              <span className="absolute top-2 left-2 px-2 sm:px-3 py-1 sm:py-2 rounded-md text-[12px] sm:text-sm font-semibold bg-blue-600 text-white shadow" style={nunitoFont}>
                 Electronics
               </span>
             </div>
@@ -180,11 +201,71 @@ export default function Home() {
                 loading="lazy"
               />
               {/* Top-left tag */}
-              <span className="absolute top-2 left-2 px-2 py-1 rounded-md text-[10px] sm:text-xs font-semibold bg-red-900/90 text-white shadow">
+              <span className="absolute top-2 left-2 px-2 sm:px-3 py-1 sm:py-2 rounded-md text-[12px] sm:text-sm font-semibold bg-blue-600 text-white shadow" style={nunitoFont}>
                 Furniture
               </span>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Products Section */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+        <div className="mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2" style={nunitoFont}>
+            Popular Products
+          </h2>
+          <p className="text-gray-600 text-sm sm:text-base" style={nunitoFont}>
+            Discover our best-selling electronics
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
+          {products.map((product) => (
+            <div key={product.id} className="bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden">
+              {/* Product Image */}
+              <div className="relative w-full h-48 sm:h-52 lg:h-56 p-4 md:p-2">
+                {product.offerPrice && (
+                  <span className="absolute top-2 left-2 bg-red-600 text-white text-[10px] sm:text-xs font-semibold px-2 py-1 rounded" style={nunitoFont}>
+                    20% OFF
+                  </span>
+                )}
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-full object-cover rounded-t-lg"
+                  loading="lazy"
+                />
+              </div>
+              
+              {/* Product Info */}
+              <div className="p-4 pt-0">
+                <h3 className="text-sm font-medium text-gray-900 mb-2 line-clamp-2" style={nunitoFont}>
+                  {product.name}
+                </h3>
+                {product.offerPrice ? (
+                  <div className="mb-3" style={nunitoFont}>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-sm text-gray-500 line-through">{product.originalPrice}</span>
+                      <span className="text-lg font-bold text-red-600">{product.offerPrice}</span>
+                    </div>
+                  </div>
+                ) : (
+                  <p className="text-lg font-bold text-black mb-3" style={nunitoFont}>
+                    {product.price}
+                  </p>
+                )}
+                
+                {/* Add to Cart Button */}
+                <button 
+                  className="w-full border-blue-600  text-blue-600 border text-sm font-medium py-2 px-4 rounded-md transition-colors duration-200"
+                  onClick={() => setCartCount(prev => prev + 1)}
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -196,14 +277,14 @@ export default function Home() {
             onClick={() => setActiveNav('home')}
             className={`flex flex-col items-center justify-center py-2 px-3 rounded-lg transition-colors ${
               activeNav === 'home' 
-                ? 'text-red-600' 
+                ? 'text-blue-600' 
                 : 'text-gray-600 hover:text-gray-900'
             }`}
           >
             <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
             </svg>
-            <span className="text-xs font-medium">Home</span>
+            <span className="text-xs font-medium" style={nunitoFont}>Home</span>
           </button>
 
           {/* Products */}
@@ -211,14 +292,14 @@ export default function Home() {
             onClick={() => setActiveNav('products')}
             className={`flex flex-col items-center justify-center py-2 px-3 rounded-lg transition-colors ${
               activeNav === 'products' 
-                ? 'text-red-600' 
+                ? 'text-blue-600' 
                 : 'text-gray-600 hover:text-gray-900'
             }`}
           >
             <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
             </svg>
-            <span className="text-xs font-medium">Products</span>
+            <span className="text-xs font-medium" style={nunitoFont}>Products</span>
           </button>
 
           {/* Cart */}
@@ -226,7 +307,7 @@ export default function Home() {
             onClick={() => setActiveNav('cart')}
             className={`flex flex-col items-center justify-center py-2 px-3 rounded-lg transition-colors ${
               activeNav === 'cart' 
-                ? 'text-red-600' 
+                ? 'text-blue-600' 
                 : 'text-gray-600 hover:text-gray-900'
             }`}
           >
@@ -235,12 +316,12 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
               {cartCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">
+                <span className="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">
                   {cartCount}
                 </span>
               )}
             </div>
-            <span className="text-xs font-medium">Cart</span>
+            <span className="text-xs font-medium" style={nunitoFont}>Cart</span>
           </button>
         </div>
       </nav>
