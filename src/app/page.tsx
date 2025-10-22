@@ -17,14 +17,14 @@ export default function Home() {
   // Dummy products data with Indian Rupees
   const products = [
     { id: 1, name: "Iron Box", price: "₹2,999", originalPrice: "₹3,749", offerPrice: "₹2,999", image: productImages[0] },
-    { id: 2, name: "Smart Watch", price: "₹5,999", originalPrice: "₹7,499", offerPrice: "₹5,999", image: productImages[1] },
-    { id: 3, name: "Bluetooth Speaker", price: "₹2,499", image: productImages[2] },
-    { id: 4, name: "Gaming Mouse", price: "₹1,499", image: productImages[0] },
-    { id: 5, name: "Mechanical Keyboard", price: "₹3,999", image: productImages[1] },
-    { id: 6, name: "USB-C Hub", price: "₹1,199", image: productImages[2] },
-    { id: 7, name: "Wireless Charger", price: "₹899", image: productImages[0] },
-    { id: 8, name: "Laptop Stand", price: "₹1,799", image: productImages[1] },
-    { id: 9, name: "Webcam HD", price: "₹2,699", image: productImages[2] },
+    { id: 2, name: "Mixi Regal", price: "₹5,999", originalPrice: "₹7,499", offerPrice: "₹5,999", image: productImages[1] },
+    { id: 3, name: "Fabric Sofa", price: "₹2,499", image: productImages[2] },
+    { id: 4, name: "Iron Box", price: "₹1,499", image: productImages[0] },
+    { id: 5, name: "Mixi Regal", price: "₹3,999", image: productImages[1] },
+    { id: 6, name: "Fabric Sofa", price: "₹1,199", image: productImages[2] },
+    { id: 7, name: "Iron Box", price: "₹899", image: productImages[0] },
+    { id: 8, name: "Mixi Regal", price: "₹1,799", image: productImages[1] },
+    { id: 9, name: "Fabric Sofa", price: "₹2,699", image: productImages[2] },
     { id: 10, name: "Power Bank", price: "₹1,049", image: productImages[0] }
   ];
   
@@ -57,20 +57,21 @@ export default function Home() {
       {/* Header */}
       <header className="bg-white shadow-md sticky top-0 z-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-[50px] md:h-[60px]">
+          <div className="flex items-center justify-between h-[55px] md:h-[60px]">
             {/* Logo */}
-            <div className="flex items-center">
+            <div className="flex flex-col items-start">
               <img
-                src="/logos.jpeg"
+                src="/loggo.jpeg"
                 alt="Classic Electronics and Furnitures"
-                className="h-8 md:h-12 w-auto object-contain"
+                className="h-6 md:h-7 w-auto object-contain"
                 loading="eager"
               />
+              <p className="text-blue-600 font-bold text-[10px] sm:text-sm" style={nunitoFont}>Electronics and Furnitures</p>
             </div>
 
             {/* Navigation - Desktop */}
             <nav className="hidden md:flex items-center space-x-8 lg:space-x-12">
-              <a href="#products" className="text-gray-700 hover:text-gray-900 font-medium transition-colors" style={nunitoFont}>
+              <a href="/products" className="text-gray-700 hover:text-gray-900 font-medium transition-colors" style={nunitoFont}>
                 Products
               </a>
               <a href="#about" className="text-gray-700 hover:text-gray-900 font-medium transition-colors" style={nunitoFont}>
@@ -84,6 +85,7 @@ export default function Home() {
             {/* Icons */}
             <div className="flex items-center space-x-3 lg:space-x-4">
               {/* Cart Icon - Desktop Only */}
+              <a href="/cart">
               <div className="hidden md:block relative">
                 <button className="p-2 text-gray-700 hover:text-gray-900 transition-colors">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -96,6 +98,7 @@ export default function Home() {
                   </span>
                 )}
               </div>
+              </a>
 
               {/* User Icon */}
               <button className="p-2 text-gray-700 hover:text-gray-900 transition-colors">
@@ -304,13 +307,13 @@ export default function Home() {
         
         {/* View More Button */}
         <div className="text-center mt-8 sm:mt-12">
-          <button 
-            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+          <a 
+            href="/products"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
             style={nunitoFont}
-            onClick={() => setActiveNav('products')}
           >
             View More Products
-          </button>
+          </a>
         </div>
       </div>
 
@@ -318,8 +321,8 @@ export default function Home() {
       <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50 md:hidden">
         <div className="flex items-center justify-around h-16 px-4">
           {/* Home */}
-          <button
-            onClick={() => setActiveNav('home')}
+          <a
+            href="/"
             className={`flex flex-col items-center justify-center py-2 px-3 rounded-lg transition-colors ${
               activeNav === 'home' 
                 ? 'text-blue-600' 
@@ -330,11 +333,11 @@ export default function Home() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
             </svg>
             <span className="text-xs font-medium" style={nunitoFont}>Home</span>
-          </button>
+          </a>
 
           {/* Products */}
-          <button
-            onClick={() => setActiveNav('products')}
+          <a
+            href="/products"
             className={`flex flex-col items-center justify-center py-2 px-3 rounded-lg transition-colors ${
               activeNav === 'products' 
                 ? 'text-blue-600' 
@@ -345,11 +348,11 @@ export default function Home() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
             </svg>
             <span className="text-xs font-medium" style={nunitoFont}>Products</span>
-          </button>
+          </a>
 
           {/* Cart */}
-          <button
-            onClick={() => setActiveNav('cart')}
+          <a
+            href="/cart"
             className={`flex flex-col items-center justify-center py-2 px-3 rounded-lg transition-colors ${
               activeNav === 'cart' 
                 ? 'text-blue-600' 
@@ -367,7 +370,7 @@ export default function Home() {
               )}
             </div>
             <span className="text-xs font-medium" style={nunitoFont}>Cart</span>
-          </button>
+          </a>
         </div>
       </nav>
     </div>
