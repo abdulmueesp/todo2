@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'local2': ['Nunito', 'sans-serif'],
+        'local2': ['Nunito'],
       },
     },
   },
