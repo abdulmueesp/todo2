@@ -18,7 +18,7 @@ export default function Home() {
         },
         {
            src: "/banner1.png",
-          alt: "Banner 3" // Add this line
+          alt: "Banner 3" 
         }
       ];
 
