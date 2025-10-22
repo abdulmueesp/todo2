@@ -180,6 +180,8 @@ export default function Home() {
         {/* Mobile/Tablet: Circular Design */}
         <div className="flex justify-center items-center gap-8 sm:gap-12 lg:hidden max-w-4xl mx-auto">
           {/* Electronics Category */}
+           <Link
+            href="/products">
           <div className="flex flex-col items-center group cursor-pointer">
             <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 bg-white border-4 border-gray-100 hover:border-blue-200">
               <img
@@ -193,8 +195,11 @@ export default function Home() {
               Electronics
             </span>
           </div>
+          </Link>
 
           {/* Furniture Category */}
+          <Link
+            href="/products">
           <div className="flex flex-col items-center group cursor-pointer">
             <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 bg-white border-4 border-gray-100 hover:border-blue-200">
               <img
@@ -208,11 +213,14 @@ export default function Home() {
               Furniture
             </span>
           </div>
+          </Link>
         </div>
 
         {/* Desktop: Rectangular Boxes */}
         <div className="hidden lg:grid grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
           {/* Electronics Category */}
+          <Link
+            href="/products">
           <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
             <div className="aspect-[16/9] lg:aspect-[16/8] xl:aspect-[16/7]">
               <img
@@ -227,8 +235,11 @@ export default function Home() {
               </span>
             </div>
           </div>
+          </Link>
 
           {/* Furniture Category */}
+          <Link
+            href="/products">
           <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
             <div className="aspect-[16/9] lg:aspect-[16/8] xl:aspect-[16/7]">
               <img
@@ -243,6 +254,7 @@ export default function Home() {
               </span>
             </div>
           </div>
+          </Link>
         </div>
       </div>
 
