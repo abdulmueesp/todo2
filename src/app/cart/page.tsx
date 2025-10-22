@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function CartPage() {
-  const [cartCount, setCartCount] = useState(0);
-  const [activeNav, setActiveNav] = useState('cart');
+  const [cartCount] = useState(0);
   
   // Font style variable
   const nunitoFont = { fontFamily: 'var(--font-nunito), sans-serif' };
@@ -28,12 +28,12 @@ export default function CartPage() {
 
             {/* Navigation - Desktop */}
             <nav className="hidden md:flex items-center space-x-8 lg:space-x-12">
-              <a href="/" className="text-gray-700 hover:text-gray-900 font-medium transition-colors" style={nunitoFont}>
+              <Link href="/" className="text-gray-700 hover:text-gray-900 font-medium transition-colors" style={nunitoFont}>
                 Home
-              </a>
-              <a href="/products" className="text-gray-700 hover:text-gray-900 font-medium transition-colors" style={nunitoFont}>
+              </Link>
+              <Link href="/products" className="text-gray-700 hover:text-gray-900 font-medium transition-colors" style={nunitoFont}>
                 Products
-              </a>
+              </Link>
               <a href="#about" className="text-gray-700 hover:text-gray-900 font-medium transition-colors" style={nunitoFont}>
                 About
               </a>
@@ -91,13 +91,13 @@ export default function CartPage() {
               Your shopping cart is currently empty. Start adding some products to see them here.
             </p>
             
-            <a 
+            <Link 
               href="/products"
               className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
               style={nunitoFont}
             >
               Continue Shopping
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -106,42 +106,36 @@ export default function CartPage() {
       <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50 md:hidden">
         <div className="flex items-center justify-around h-16 px-4">
           {/* Home */}
-          <a
+          <Link
             href="/"
             className={`flex flex-col items-center justify-center py-2 px-3 rounded-lg transition-colors ${
-              activeNav === 'home' 
-                ? 'text-blue-600' 
-                : 'text-gray-600 hover:text-gray-900'
+              'text-gray-600 hover:text-gray-900'
             }`}
           >
             <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
             </svg>
             <span className="text-xs font-medium" style={nunitoFont}>Home</span>
-          </a>
+          </Link>
 
           {/* Products */}
-          <a
+          <Link
             href="/products"
             className={`flex flex-col items-center justify-center py-2 px-3 rounded-lg transition-colors ${
-              activeNav === 'products' 
-                ? 'text-blue-600' 
-                : 'text-gray-600 hover:text-gray-900'
+              'text-gray-600 hover:text-gray-900'
             }`}
           >
             <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
             </svg>
             <span className="text-xs font-medium" style={nunitoFont}>Products</span>
-          </a>
+          </Link>
 
           {/* Cart */}
-          <a
+          <Link
             href="/cart"
             className={`flex flex-col items-center justify-center py-2 px-3 rounded-lg transition-colors ${
-              activeNav === 'cart' 
-                ? 'text-blue-600' 
-                : 'text-gray-600 hover:text-gray-900'
+              'text-blue-600'
             }`}
           >
             <div className="relative mb-1">
@@ -155,7 +149,7 @@ export default function CartPage() {
               )}
             </div>
             <span className="text-xs font-medium" style={nunitoFont}>Cart</span>
-          </a>
+          </Link>
         </div>
       </nav>
     </div>
