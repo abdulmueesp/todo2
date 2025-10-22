@@ -12,11 +12,11 @@ export default function Home() {
   const nunitoFont = { fontFamily: 'var(--font-nunito), sans-serif' };
   
   // Product images array for looping
-  const productImages = ["/iron.webp","/mixi.webp","/ssofa.webp"];
+  const productImages = ["/iron2.jpg","/mixi.webp","/ssofa.webp"];
   
   // Dummy products data with Indian Rupees
   const products = [
-    { id: 1, name: "Wireless Headphones", price: "₹2,999", originalPrice: "₹3,749", offerPrice: "₹2,999", image: productImages[0] },
+    { id: 1, name: "Iron Box", price: "₹2,999", originalPrice: "₹3,749", offerPrice: "₹2,999", image: productImages[0] },
     { id: 2, name: "Smart Watch", price: "₹5,999", originalPrice: "₹7,499", offerPrice: "₹5,999", image: productImages[1] },
     { id: 3, name: "Bluetooth Speaker", price: "₹2,499", image: productImages[2] },
     { id: 4, name: "Gaming Mouse", price: "₹1,499", image: productImages[0] },
@@ -168,16 +168,50 @@ export default function Home() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-8 lg:py-10">
         <div className="text-center mb-6 sm:mb-10">
           <p className="text-xl sm:text-3xl font-bold mb-[2px] sm:mb-[8px] text-gray-900" style={nunitoFont}>Our Categories</p>
-          <p className="text-gray-600 max-w-2xl mx-auto text-[10px] sm:text-sm" style={nunitoFont}>
+          <p className="text-gray-600 max-w-2xl mx-auto text-[13px] sm:text-base" style={nunitoFont}>
             Explore our wide range of products
           </p>
         
         </div>
         
-        <div className="grid grid-cols-2 gap-2 sm:gap-8 lg:gap-12 max-w-6xl mx-auto">
+        {/* Mobile/Tablet: Circular Design */}
+        <div className="flex justify-center items-center gap-8 sm:gap-12 lg:hidden max-w-4xl mx-auto">
           {/* Electronics Category */}
-          <div className="group relative overflow-hidden rounded-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-            <div className="aspect-[16/9] sm:aspect-[16/8] lg:aspect-[16/7]">
+          <div className="flex flex-col items-center group cursor-pointer">
+            <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 bg-white border-4 border-gray-100 hover:border-blue-200">
+              <img
+                src="/electronics.png"
+                alt="Electronics"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                loading="lazy"
+              />
+            </div>
+            <span className="mt-4 text-lg sm:text-xl font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300" style={nunitoFont}>
+              Electronics
+            </span>
+          </div>
+
+          {/* Furniture Category */}
+          <div className="flex flex-col items-center group cursor-pointer">
+            <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 bg-white border-4 border-gray-100 hover:border-blue-200">
+              <img
+                src="/furniture.png"
+                alt="Furniture"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                loading="lazy"
+              />
+            </div>
+            <span className="mt-4 text-lg sm:text-xl font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300" style={nunitoFont}>
+              Furniture
+            </span>
+          </div>
+        </div>
+
+        {/* Desktop: Rectangular Boxes */}
+        <div className="hidden lg:grid grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
+          {/* Electronics Category */}
+          <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+            <div className="aspect-[16/9] lg:aspect-[16/8] xl:aspect-[16/7]">
               <img
                 src="/electronics.png"
                 alt="Electronics"
@@ -185,15 +219,15 @@ export default function Home() {
                 loading="lazy"
               />
               {/* Top-left tag */}
-              <span className="absolute top-2 left-2 px-2 sm:px-3 py-1 sm:py-2 rounded-md text-[12px] sm:text-sm font-semibold bg-blue-600 text-white shadow" style={nunitoFont}>
+              <span className="absolute top-4 left-4 px-3 py-2 rounded-md text-sm font-semibold bg-blue-600 text-white shadow" style={nunitoFont}>
                 Electronics
               </span>
             </div>
           </div>
 
           {/* Furniture Category */}
-          <div className="group relative overflow-hidden rounded-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-            <div className="aspect-[16/9] sm:aspect-[16/8] lg:aspect-[16/7]">
+          <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+            <div className="aspect-[16/9] lg:aspect-[16/8] xl:aspect-[16/7]">
               <img
                 src="/furniture.png"
                 alt="Furniture"
@@ -201,7 +235,7 @@ export default function Home() {
                 loading="lazy"
               />
               {/* Top-left tag */}
-              <span className="absolute top-2 left-2 px-2 sm:px-3 py-1 sm:py-2 rounded-md text-[12px] sm:text-sm font-semibold bg-blue-600 text-white shadow" style={nunitoFont}>
+              <span className="absolute top-4 left-4 px-3 py-2 rounded-md text-sm font-semibold bg-blue-600 text-white shadow" style={nunitoFont}>
                 Furniture
               </span>
             </div>
@@ -211,16 +245,16 @@ export default function Home() {
 
       {/* Products Section */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-        <div className="mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2" style={nunitoFont}>
+        <div className="mb-4 sm:mb-8">
+          <p className="text-xl sm:text-3xl font-bold text-gray-900 mb-1" style={nunitoFont}>
             Popular Products
-          </h2>
-          <p className="text-gray-600 text-sm sm:text-base" style={nunitoFont}>
+          </p>
+          <p className="text-gray-600 text-[13px] sm:text-base" style={nunitoFont}>
             Discover our best-selling electronics
           </p>
         </div>
         
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-2 sm:gap-6">
           {products.map((product) => (
             <div key={product.id} className="bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden">
               {/* Product Image */}
@@ -247,11 +281,11 @@ export default function Home() {
                   <div className="mb-3" style={nunitoFont}>
                     <div className="flex items-center space-x-2">
                       <span className="text-sm text-gray-500 line-through">{product.originalPrice}</span>
-                      <span className="text-lg font-bold text-red-600">{product.offerPrice}</span>
+                      <span className="text-lg font-extrabold text-red-600">{product.offerPrice}</span>
                     </div>
                   </div>
                 ) : (
-                  <p className="text-lg font-bold text-black mb-3" style={nunitoFont}>
+                  <p className="text-lg font-extrabold text-black mb-3" style={nunitoFont}>
                     {product.price}
                   </p>
                 )}
@@ -266,6 +300,17 @@ export default function Home() {
               </div>
             </div>
           ))}
+        </div>
+        
+        {/* View More Button */}
+        <div className="text-center mt-8 sm:mt-12">
+          <button 
+            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            style={nunitoFont}
+            onClick={() => setActiveNav('products')}
+          >
+            View More Products
+          </button>
         </div>
       </div>
 
