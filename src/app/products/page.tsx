@@ -81,18 +81,18 @@ export default function ProductsPage() {
               <Link href="/products" className="text-blue-600 font-medium transition-colors" style={nunitoFont}>
                 Products
               </Link>
-              <a href="#about" className="text-gray-700 hover:text-gray-900 font-medium transition-colors" style={nunitoFont}>
+              <Link href="#about" className="text-gray-700 hover:text-gray-900 font-medium transition-colors" style={nunitoFont}>
                 About
-              </a>
-              <a href="#contact" className="text-gray-700 hover:text-gray-900 font-medium transition-colors" style={nunitoFont}>
+              </Link>
+              <Link href="#contact" className="text-gray-700 hover:text-gray-900 font-medium transition-colors" style={nunitoFont}>
                 Contact
-              </a>
+              </Link>
             </nav>
 
             {/* Icons */}
             <div className="flex items-center space-x-3 lg:space-x-4">
               {/* Cart Icon - Desktop Only */}
-              <a href="/cart">
+              <Link href="/cart">
               <div className="hidden md:block relative">
                 <button className="p-2 text-gray-700 hover:text-gray-900 transition-colors">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -105,7 +105,7 @@ export default function ProductsPage() {
                   </span>
                 )}
               </div>
-              </a>
+              </Link>
 
               {/* User Icon */}
               <button className="p-2 text-gray-700 hover:text-gray-900 transition-colors">
