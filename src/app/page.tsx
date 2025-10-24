@@ -322,13 +322,13 @@ export default function Home() {
         
         {/* View More Button */}
         <div className="text-center mt-8 sm:mt-12">
-          <a 
+          <Link 
             href="/products"
             className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
             style={nunitoFont}
           >
             View More Products
-          </a>
+          </Link>
         </div>
       </div>
 
