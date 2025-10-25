@@ -63,7 +63,7 @@ export default function Home() {
               <img
                 src="/mylogo1-2.png"
                 alt="Classic Electronics and Furnitures"
-                className="h-10 md:h-15 w-auto object-contain"
+                className="h-14 md:h-15 w-auto object-contain"
                 loading="eager"
               />
    
