@@ -55,18 +55,18 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50 pb-16 md:pb-0">
       {/* Header */}
-      <header className="bg-white shadow-md sticky top-0 z-50">
+      <header className="bg-blue-950 text-white shadow-md sticky top-0 z-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-[55px] md:h-[60px]">
             {/* Logo */}
             <div className="flex flex-col items-start">
               <img
-                src="/loggo.jpeg"
+                src="/mylogo1-2.png"
                 alt="Classic Electronics and Furnitures"
-                className="h-6 md:h-7 w-auto object-contain"
+                className="h-10 md:h-15 w-auto object-contain"
                 loading="eager"
               />
-              <p className="text-blue-600 font-bold text-[10px] sm:text-sm" style={nunitoFont}>Electronics and Furnitures</p>
+   
             </div>
 
             {/* Navigation - Desktop */}
